@@ -1,0 +1,33 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+	killall nmbd smbd        
+	rm -f /etc/samba/smb.conf
+        cp /www/smbusb.conf /etc/samba/smb.conf
+        nmbd -D
+        smbd -D
+	echo 34 > /sys/class/gpio/export
+	echo out > /sys/class/gpio/gpio34/direction
+	echo 1 > /sys/class/gpio/gpio34/value
+	sleep 0.3
+	echo 0 > /sys/class/gpio/gpio34/value
+	sleep 0.3
+	echo 1 > /sys/class/gpio/gpio34/value
+	sleep 0.3
+	echo 0 > /sys/class/gpio/gpio34/value
+        ;;
+    stop)
+        echo "Stopping..."
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

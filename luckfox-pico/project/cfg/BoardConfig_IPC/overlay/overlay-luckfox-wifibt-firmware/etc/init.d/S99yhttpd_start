@@ -1,0 +1,20 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        httpd -f -p 80 -h /www &
+        ;;
+    stop)
+        killall httpd
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
