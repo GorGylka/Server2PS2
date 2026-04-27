@@ -1,3 +1,5 @@
+Readme Work in Progress
+
 Building:
 - git clone https://github.com/LuckfoxTECH/luckfox-pico
 - Merge with my files
