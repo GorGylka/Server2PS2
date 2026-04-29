@@ -10,7 +10,19 @@
 - Rapid 12sec. bootup
 - Easy installation & clear interface
 
-  
+<h3 align="left">Compatibility</h3>  
+
+| Device | Support | SD | USB |
+| ------------- | ------------- | ------------- | ------------- |
+| Luckfox Pico Mini B | ✅  | ✅  | ✅* |
+| Luckfox Pico Mini A | ❓ | ❌ | ✅* |
+| Luckfox Pico Plus | ✅ | ✅ | ✅* |
+| Luckfox Pico WebBee | ✅ | ✅ | ❓ |
+| rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅* |
+
+✅* = Requires Type-C OTG adapter & external 5V power  
+❓= Not tested    
+
 Building:
 - git clone https://github.com/LuckfoxTECH/luckfox-pico
 - Merge with my files
