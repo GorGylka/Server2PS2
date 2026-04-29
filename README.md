@@ -5,8 +5,8 @@
 <h3 align="left">Features:</h3>  
 
 - SMB / UDPBD / UDPFS support 
-- exFAT MBR / GPT Support any capacity
-- MicroSD / USB 2.0 via OTG
+- exFAT 
+- MicroSD / USB
 - Rapid 12sec. bootup
 - Easy installation & clear interface
 
