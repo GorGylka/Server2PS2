@@ -1,7 +1,16 @@
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=60% height=60%>
 
-Readme Work in Progress
+<h2 align="left">Server2PS2 - Universal PS2 server</h2>
 
+<h3 align="left">Features:</h3>  
+
+- SMB / UDPBD / UDPFS support 
+- exFAT MBR / GPT Support any capacity
+- MicroSD / USB 2.0 via OTG
+- Rapid 12sec. bootup
+- Easy installation & clear interface
+
+  
 Building:
 - git clone https://github.com/LuckfoxTECH/luckfox-pico
 - Merge with my files
