@@ -14,11 +14,11 @@
 
 | Device | Support | SD | USB | Photo |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Luckfox Pico Mini B | ✅  | ✅  | ✅* | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=10% height=10%> |
-| Luckfox Pico Mini A | ❓ | ❌ | ✅* | USB |
-| Luckfox Pico Plus | ✅ | ✅ | ✅* | USB |
-| Luckfox Pico WebBee | ✅ | ✅ | ❓ | USB |
-| rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅* | USB |
+| Luckfox Pico Mini B | ✅  | ✅  | ✅* | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_b.jpg" width=20% height=20%> |
+| Luckfox Pico Mini A | ❓ | ❌ | ✅* | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_a.jpg" width=20% height=20%> |
+| Luckfox Pico Plus | ✅ | ✅ | ✅* | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_plus.jpg" width=40% height=40%> |
+| Luckfox Pico WebBee | ✅ | ✅ | ❓ | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_webbee.jpg" width=40% height=40%> |
+| rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅* | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_pppwn.jpg" width=40% height=40%> |
 
 ✅* = Requires Type-C OTG adapter & external 5V power  
 ❓= Not tested    
