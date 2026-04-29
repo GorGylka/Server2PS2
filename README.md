@@ -1,4 +1,4 @@
-<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=30% height=30%>
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=60% height=60%>
 
 Readme Work in Progress
 
