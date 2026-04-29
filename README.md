@@ -12,13 +12,13 @@
 
 <h3 align="left">Compatibility</h3>  
 
-| Device | Support | SD | USB |
-| ------------- | ------------- | ------------- | ------------- |
-| Luckfox Pico Mini B | ✅  | ✅  | ✅* |
-| Luckfox Pico Mini A | ❓ | ❌ | ✅* |
-| Luckfox Pico Plus | ✅ | ✅ | ✅* |
-| Luckfox Pico WebBee | ✅ | ✅ | ❓ |
-| rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅* |
+| Device | Support | SD | USB | Photo |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Luckfox Pico Mini B | ✅  | ✅  | ✅* | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=10% height=10%> |
+| Luckfox Pico Mini A | ❓ | ❌ | ✅* | USB |
+| Luckfox Pico Plus | ✅ | ✅ | ✅* | USB |
+| Luckfox Pico WebBee | ✅ | ✅ | ❓ | USB |
+| rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅* | USB |
 
 ✅* = Requires Type-C OTG adapter & external 5V power  
 ❓= Not tested    
