@@ -21,7 +21,7 @@
 | rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅² | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_pppwn.jpg" width=40% height=40%> |
 
 ✅¹ = Requires LAN cable solder  
-<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_eth.jpg" width=40% height=40%> 
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_eth.jpg" width=30% height=30%>  
 ✅² = Requires Type-C OTG adapter & external 5V power  
 ❓= Not tested yet   
 
