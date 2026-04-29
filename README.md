@@ -1,4 +1,4 @@
-<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=60% height=60%>
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=50% height=50%>
 
 <h2 align="left">Server2PS2 - Universal PS2 server</h2>
 
@@ -22,7 +22,8 @@
 
 ✅¹ = Requires LAN cable solder  
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_eth.jpg" width=30% height=30%>  
-✅² = Requires Type-C OTG adapter & external 5V power  
+✅² = Requires Type-C OTG adapter / Type-C USB Drive & external 5V power  
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_otg.jpg" width=50% height=50%>  
 ❓= Not tested yet   
 
 Building:
