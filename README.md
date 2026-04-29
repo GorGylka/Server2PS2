@@ -1,3 +1,4 @@
+WORK IN PROGRESS
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=50% height=50%>
 
 <h2 align="left">Server2PS2 - Universal PS2 server</h2>
@@ -25,6 +26,8 @@
 ✅² = Requires Type-C OTG adapter / Type-C USB Drive & external 5V power  
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_otg.jpg" width=50% height=50%>  
 ❓= Not tested yet   
+
+<h2 align="left">Installation:</h2>  
 
 Building:
 - git clone https://github.com/LuckfoxTECH/luckfox-pico
