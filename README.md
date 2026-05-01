@@ -71,8 +71,17 @@ WORK IN PROGRESS
 
 - Check that drives are detected by server, then select the server mode and we're ready to go.
 
+<h2 align="left">PS2 Config:</h2>
 
-Building:
-- git clone https://github.com/LuckfoxTECH/luckfox-pico
-- Merge with my files
-- i dont know how to copy hidden files correctly, you need to rename 2 config files as .config
+<h3 align="left">SMB</h3>  
+- Soon
+
+<h3 align="left">UDPBD</h3>  
+Soon
+<h3 align="left">UDPFS</h3>  
+Soon
+<h2 align="left">Building</h2>  
+
+- git clone https://github.com/LuckfoxTECH/luckfox-pico   
+- Merge with my files   
+- i dont know how to copy hidden files correctly, you need to rename 2 config files as .config  
