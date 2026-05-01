@@ -27,7 +27,50 @@ WORK IN PROGRESS
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_otg.jpg" width=50% height=50%>  
 ❓= Not tested yet   
 
+<h2 align="left">MicroSD / USB preparations:</h2>
+
+-Format USB to GUID Partition Table (GPT), exFat, Standart Cluster Size  
+(I recommend using [Rufus](https://rufus.ie) than Windows formatting)  
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/format.jpg"> 
+
+-Do standart USB config for PS2 (create CD/DVD folders, add backups, ARTs, e.t.c.)
+
 <h2 align="left">Installation:</h2>  
+
+- Install Drivers [click here to download](https://files.luckfox.com/wiki/Omni3576/TOOLS/DriverAssitant_v5.13.zip).
+  
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/driver.jpg">
+
+- download and unzip latest [FW image](https://github.com/GorGylka/Server2PS2/releases)
+
+- Download and extract the SocToolKit flashing tool[Click here to download](https://files.luckfox.com/wiki/Luckfox-Pico/Software/SocToolKit_v1.98_20240705_01_win.zip).
+
+- Run SocToolKit, Then flash FW as shown
+
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/flashing.jpg">
+
+- After flashing, disconnect the USB cable. Server side is done!
+
+  <h2 align="left">Configuration:</h2>  
+
+- To get to router config page, you will need to set Static IP
+- Connect power to server, LAN cable, Set as shown:
+  
+| IP | 192.168.1.10 |
+| ------------- | ------------- |
+| NetMask | 255.255.255.0 |
+| Gateway | 192.168.1.1 |  
+
+
+
+  <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/netconfig.jpg">
+
+- go to (http://192.168.1.1/cgi-bin/index.cgi) or (http://192.168.1.1)
+
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/menu.jpg" width=75% height=75%>
+
+- Check that drives are detected by server, then select the server mode and we're ready to go.
+
 
 Building:
 - git clone https://github.com/LuckfoxTECH/luckfox-pico
