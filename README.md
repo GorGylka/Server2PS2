@@ -1,8 +1,8 @@
 WORK IN PROGRESS  
 
-<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=50% height=50%>
-
 <h2 align="left">Server2PS2 - Universal PS2 server</h2>
+
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=40% height=40%>
 
 <h3 align="left">Features:</h3>  
 
