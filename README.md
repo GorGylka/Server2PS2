@@ -75,7 +75,7 @@ WORK IN PROGRESS
 <h2 align="left">PS2 Config:</h2>
 
 <h3 align="left">SMB</h3>  
-- Soon
+- Instructions will appear soon
 
 <h3 align="left">UDPBD</h3>  
 Soon
