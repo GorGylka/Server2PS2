@@ -75,7 +75,12 @@ WORK IN PROGRESS
 <h2 align="left">PS2 Config:</h2>
 
 <h3 align="left">SMB</h3>  
-- Instructions will appear soon
+- Config in OPL, As a reference:
+
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/smb1.jpg" width=50% height=50%>  
+
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/smb2.jpg" width=50% height=50%>  
+
 
 <h3 align="left">UDPBD</h3>  
 Soon
