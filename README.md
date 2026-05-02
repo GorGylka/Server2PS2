@@ -10,8 +10,8 @@ WORK IN PROGRESS
 - exFAT 
 - MicroSD / USB
 - Rapid ⏱️ 12sec. bootup
-- Easy installation & clear interface
-- Based on accessible and inexpensive hardware
+- Easy setup & clear interface
+- Based on accessible, inexpensive hardware
 
 <h3 align="left">Compatibility</h3>  
 
