@@ -23,11 +23,14 @@ WORK IN PROGRESS
 | Luckfox Pico WebBee | ✅ | ✅ | ❌ | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_webbee.jpg" width=40% height=40%> |
 | rv1103 based P4 PPPwn Dongles | ❓ | ❓ | ✅² | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_pppwn.jpg" width=40% height=40%> |
 
+❓= Not tested yet   
 ✅¹ = Requires LAN cable solder  
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_eth.jpg" width=30% height=30%>  
 ✅² = Requires Type-C OTG adapter / Type-C USB Drive & external 5V power  
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_otg.jpg" width=50% height=50%>  
-❓= Not tested yet   
+For P4 Dongle:  
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/p4.jpg" width=50% height=50%>  
+
 
 <h2 align="left">MicroSD / USB preparations:</h2>
 
@@ -47,7 +50,7 @@ WORK IN PROGRESS
 
 - Download and extract the SocToolKit flashing tool[Click here to download](https://files.luckfox.com/wiki/Luckfox-Pico/Software/SocToolKit_v1.98_20240705_01_win.zip).
 
-- Run SocToolKit, Then flash FW as shown
+- Plug Luckfox while holding BOOT, Run SocToolKit, flash FW as shown
 
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/flashing.jpg">
 
