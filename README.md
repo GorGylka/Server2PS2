@@ -30,6 +30,8 @@ WORK IN PROGRESS
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_mini_otg.jpg" width=50% height=50%>  
 For P4 Dongle:  
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/p4.jpg" width=50% height=50%>  
+Alternative design:  
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/p4v1.jpg" width=50% height=50%>  
 
 
 <h2 align="left">MicroSD / USB preparations:</h2>
