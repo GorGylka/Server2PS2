@@ -1,37 +1,52 @@
 #!/bin/sh
 
+
+DEV="/dev/sda1"
+BIN="/usr/bin/udpbd-server"
+GPIO_PIN="34"
+
 case "$1" in
     start)
-        /usr/bin/udpbd-server-c /dev/sda1 &
-	echo 34 > /sys/class/gpio/export
-	echo out > /sys/class/gpio/gpio34/direction
-	echo 1 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 0 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 1 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 0 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 1 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 0 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 1 > /sys/class/gpio/gpio34/value
-	sleep 0.3
-	echo 0 > /sys/class/gpio/gpio34/value
+        echo "Booting Up USB Server..."
+
+        (
+            
+            while ! ip addr show eth0 | grep -q "inet "; do
+                sleep 1
+            done
+
+            for i in 1 2 3 4 5 6 7 8 9 10; do
+                [ -b "$DEV" ] && break
+                sleep 1
+            done
+
+            if [ -b "$DEV" ]; then
+                sysctl -w net.core.rmem_max=26214400 >/dev/null 2>&1
+                sysctl -w net.core.wmem_max=26214400 >/dev/null 2>&1
+                if [ -e /sys/devices/system/cpu/cpufreq/policy0/scaling_governor ]; then
+                    echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+                fi
+
+                killall -9 $(basename $BIN) >/dev/null 2>&1
+                nice -n -20 $BIN "$DEV" > /dev/null 2>&1 &
+                
+                if [ ! -d "/sys/class/gpio/gpio$GPIO_PIN" ]; then
+                    echo $GPIO_PIN > /sys/class/gpio/export 2>/dev/null
+                fi
+                echo out > "/sys/class/gpio/gpio$GPIO_PIN/direction"
+                for i in 1 0 1 0; do
+                    echo $i > "/sys/class/gpio/gpio$GPIO_PIN/value"
+                    sleep 0.2
+                done
+            fi
+        ) &
         ;;
     stop)
-        echo "Stopping..."
-        ;;
-    restart)
-        $0 stop
-        $0 start
+        killall -9 $(basename $BIN) >/dev/null 2>&1
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart}"
+        echo "Uso: $0 {start|stop}"
         exit 1
         ;;
 esac
-
 exit 0
