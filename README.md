@@ -94,6 +94,8 @@ Blinking of USER LED = server has started, number of blinks indicates server typ
 
 After starting, you can cycle through the modes by pressing the ```BOOT``` button  
 
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/mode_select.gif">
+
 <h3 align="left">Manual setup:</h3> 
 
 - To get to router config page, you will need to set Static IP
