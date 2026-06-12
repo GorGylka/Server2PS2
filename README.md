@@ -75,7 +75,7 @@ Alternative design:
 
 - After flashing, disconnect the USB cable. Server side is done!
 
-  <h2 align="left">Configuration:</h2>  
+<h2 align="left">Configuration:</h2>  
 
 <h3 align="left">Simplified setup:</h3>  
 
@@ -114,7 +114,7 @@ After starting, you can cycle through the modes by pressing the ```BOOT``` butto
 
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/menu.jpg" width=75% height=75%>
 
-- Check that drives are detected by server, then select the server mode and we're ready to go.
+- Check that drives are detected by server, then select the server mode.
 
 <h2 align="left">PS2 Config:</h2>
 
