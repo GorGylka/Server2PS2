@@ -61,6 +61,25 @@ Alternative design:
 
   <h2 align="left">Configuration:</h2>  
 
+<h3 align="left">Simplified setup:</h3>  
+
+On the Luckfox Pico (depending on the model) there are 2 LEDs: ACT and USER  
+Blinking of USER LED = server has started, number of blinks indicates server type.  
+(Default is SMB SD)  
+
+| LED | Action | Server Type |
+| ------------- | ------------- | ------------- |
+| 1 Blink | 🔴 | SMB SD |
+| 2 Blinks | 🔴🔴 | SMB USB |
+| 3 Blinks | 🔴🔴🔴 | UDPBD SD |
+| 4 Blinks | 🔴🔴🔴🔴 | UDPBD USB |
+| 5 Blinks | 🔴🔴🔴🔴🔴 | UDPFS SD |
+| 6 Blinks | 🔴🔴🔴🔴🔴🔴 | UDPFS USB |
+
+After starting, you can cycle through the modes by pressing the ```BOOT``` button  
+
+<h3 align="left">Manual setup:</h3> 
+
 - To get to router config page, you will need to set Static IP
 - Connect power to server, LAN cable, Set as shown:
   
