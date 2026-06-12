@@ -13,6 +13,22 @@ WORK IN PROGRESS
 - Easy setup & clear interface
 - Based on accessible, inexpensive hardware
 
+<h3 align="left">Benchmarks:</h3>  
+
+Device             | PS2 model  | Speed                                                                            
+-------------------|------------|----------------------------------------------------------------------------------
+USB                | FAT + SLIM 70000  |![x](https://progress-bar.xyz/750?scale=2200&suffix=KB/s&&progress_color=d9534f)  
+USB                | SLIM       |![x](https://progress-bar.xyz/900?scale=2200&suffix=KB/s)                         
+MX4SIO             | SLIM       |![x](https://progress-bar.xyz/1150?scale=2200&suffix=KB/s)                        
+MMCE               | SLIM       |![x](https://progress-bar.xyz/1350?scale=2200&suffix=KB/s)                        
+MX4SIO             | FAT + SLIM 70000  |![x](https://progress-bar.xyz/1500?scale=2200&suffix=KB/s)                        
+MMCE               | FAT + SLIM 70000  |![x](https://progress-bar.xyz/1700?scale=2200&suffix=KB/s&&progress_color=9ead5a)                        
+SMB ⭐               | ALL        |![x](https://progress-bar.xyz/2200?scale=2500&suffix=KB/s&&progress_color=85ad5b)                             
+DVD (Target) ✔️| ALL        |![x](https://progress-bar.xyz/3500?scale=2200&suffix=KB/s)                        
+UDPFS ⭐             | ALL        |![x](https://progress-bar.xyz/5200?scale=2200&suffix=KB/s)                        
+UDPBD ⭐             | ALL        |![x](https://progress-bar.xyz/9400?scale=2200&suffix=KB/s)                        
+IDE HDD            | FAT        |![x](https://progress-bar.xyz/21000?scale=2200&suffix=KB/s)                        
+
 <h3 align="left">Compatibility</h3>  
 
 | Device | Support | SD | USB | Photo |
