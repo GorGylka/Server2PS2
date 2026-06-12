@@ -112,7 +112,7 @@ After starting, you can cycle through the modes by pressing the ```BOOT``` butto
 
 - go to (http://192.168.1.1/cgi-bin/index.cgi) or (http://192.168.1.1)
 
-<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/menu.jpg" width=75% height=75%>
+<img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/menu2.jpg" width=75% height=75%>
 
 - Check that drives are detected by server, then select the server mode.
 
