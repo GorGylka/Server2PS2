@@ -128,6 +128,11 @@ After starting, you can cycle through the modes by pressing the ```BOOT``` butto
 Soon
 <h3 align="left">UDPFS</h3>  
 Soon
+
+<h2 align="left">Advanced</h2>  
+
+SSH / SCP: IP ```192.168.1.1``` Login ```root``` Pass: ```luckfox```  
+ 
 <h2 align="left">Building</h2>  
 
 - git clone https://github.com/LuckfoxTECH/luckfox-pico   
