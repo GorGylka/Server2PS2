@@ -1,17 +1,15 @@
-WORK IN PROGRESS  
-
 <h2 align="left">Server2PS2 - Universal PS2 server</h2>
 
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=40% height=40%>
 
 <h3 align="left">Features:</h3>  
 
-- SMB / UDPBD / UDPFS support 
-- exFAT 
-- MicroSD / USB
+- ```SMB``` / ```UDPBD``` / ```UDPFS``` support 
+- ```exFAT``` 
+- ```MicroSD``` / ```USB```
 - Rapid ⏱️ 12sec. bootup
 - Easy setup & clear interface
-- Based on accessible, inexpensive hardware
+- Based on accessible, cheap hardware
 
 <h3 align="left">Benchmarks:</h3>  
 
@@ -119,7 +117,8 @@ After starting, you can cycle through the modes by pressing the ```BOOT``` butto
 <h2 align="left">PS2 Config:</h2>
 
 <h3 align="left">SMB</h3>  
-- Config in [OPL](https://github.com/ps2homebrew/Open-PS2-Loader/releases/tag/latest) , As a reference:
+
+Config in [OPL]( https://github.com/ps2homebrew/Open-PS2-Loader/releases/tag/latest) as a reference:
 
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/smb1.jpg" width=50% height=50%>  
 
