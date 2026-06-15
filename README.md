@@ -159,3 +159,7 @@ SSH / SCP: IP ```192.168.1.1``` Login ```root``` Pass: ```luckfox```
 - git clone https://github.com/LuckfoxTECH/luckfox-pico   
 - Merge with my files   
 - i dont know how to copy hidden files correctly, you need to rename 2 config files as .config  
+
+<h2 align="Center">Big thanks to</h2> 
+
+[Rickgaiser](https://github.com/rickgaiser) , [pcm720](https://github.com/pcm720), [AlSiSan](https://github.com/AlSiSan/) , AlSiSan and whole PS2 Community 
