@@ -1,0 +1,11 @@
+#!/bin/sh
+case "$1" in
+    start)
+        echo "button listen"
+        /usr/button.sh &
+        ;;
+    stop)
+        killall button.sh
+        ;;
+esac
+exit 0

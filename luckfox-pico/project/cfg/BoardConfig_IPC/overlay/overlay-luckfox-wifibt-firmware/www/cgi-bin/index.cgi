@@ -59,10 +59,14 @@ cat <<EOF
     <style>
         body {
             margin: 0;
-            padding: 24px;
-            background: #f4f6f8;
+            padding: 10px;
+            //background: #f4f6f8;
             color: #1f2937;
             font-family: Arial, sans-serif;
+	    background-image: url('/bg.png');
+            background-repeat: repeat; 
+
+
         }
         .wrap {
             max-width: 760px;
@@ -72,8 +76,11 @@ cat <<EOF
             background: #ffffff;
             border: 1px solid #d8dee4;
             border-radius: 12px;
-            padding: 20px;
+            padding: 10px;
             margin-bottom: 16px;
+	   // background-image: url('/logo.png');
+           // background-repeat: repeat; 
+
         }
         h1 {
             margin: 0 0 16px 0;
@@ -147,7 +154,9 @@ cat <<EOF
 <body>
     <div class="wrap">
         <div class="card">
-            <h1>PS2 Network Server</h1>
+	
+             <h1>Server to PS2 </h1>
+	
             <div class="muted">Select server type and storage device</div>
 
             <form action="/cgi-bin/apply.cgi" method="get">
@@ -209,6 +218,9 @@ cat <<EOF
             <div class="info">Selected server: $CURRENT_SERVER</div>
             <div class="status $SD_CLASS">$SD_TEXT</div>
             <div class="status $USB_CLASS">$USB_TEXT</div>
+<div style="text-align: center; margin-bottom: 1px;">
+    <img src="/logo.png" alt="Logo" style="max-width: 10%; height: auto;">
+</div>
         </div>
     </div>
 </body>

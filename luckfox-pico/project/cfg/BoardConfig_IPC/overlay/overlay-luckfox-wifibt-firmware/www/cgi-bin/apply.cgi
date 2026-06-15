@@ -77,5 +77,5 @@ cat <<EOF
 </html>
 EOF
 
-(sleep 2; reboot) >/dev/null 2>&1 &
+(sleep 1; reboot) >/dev/null 2>&1 &
 exit 0

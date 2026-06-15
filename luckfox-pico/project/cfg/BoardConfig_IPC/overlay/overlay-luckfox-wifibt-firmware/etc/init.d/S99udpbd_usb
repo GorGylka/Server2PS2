@@ -34,9 +34,9 @@ case "$1" in
                     echo $GPIO_PIN > /sys/class/gpio/export 2>/dev/null
                 fi
                 echo out > "/sys/class/gpio/gpio$GPIO_PIN/direction"
-                for i in 1 0 1 0; do
+                for i in 1 0 1 0 1 0 1 0; do
                     echo $i > "/sys/class/gpio/gpio$GPIO_PIN/value"
-                    sleep 0.2
+                    sleep 0.3
                 done
             fi
         ) &

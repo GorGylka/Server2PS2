@@ -2,16 +2,21 @@
 
 case "$1" in
     start)
-	killall nmbd smbd        
+	killall nmbd smbd      
 	rm -f /etc/samba/smb.conf
         cp /www/smbsd.conf /etc/samba/smb.conf
-        nmbd -D
+	echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	nmbd -D
         smbd -D
-	echo 34 > /sys/class/gpio/export
-	echo out > /sys/class/gpio/gpio34/direction
-	echo 1 > /sys/class/gpio/gpio34/value
+
+
+
+	echo 34 > /sys/class/gpio/export 2>/dev/null
+	echo out > "/sys/class/gpio/gpio34/direction"
+        for i in 1 0; do
+	echo $i > "/sys/class/gpio/gpio34/value"
 	sleep 0.3
-	echo 0 > /sys/class/gpio/gpio34/value
+	done
         ;;
     stop)
         echo "Stopping..."

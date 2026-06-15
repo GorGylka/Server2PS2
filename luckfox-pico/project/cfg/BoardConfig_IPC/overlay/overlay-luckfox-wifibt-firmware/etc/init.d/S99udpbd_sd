@@ -1,13 +1,12 @@
 #!/bin/sh
 
-
-DEV="/dev/mmcblk0p1" 
+DEV="/dev/mmcblk1" 
 BIN="/usr/bin/udpbd-server"
 GPIO_PIN="34"
 
 case "$1" in
     start)
-        echo "Booting Up SD Server..."
+        echo "Booting Up USB Server..."
 
         (
             
@@ -34,9 +33,9 @@ case "$1" in
                     echo $GPIO_PIN > /sys/class/gpio/export 2>/dev/null
                 fi
                 echo out > "/sys/class/gpio/gpio$GPIO_PIN/direction"
-                for i in 1 0 1 0; do
+                for i in 1 0 1 0 1 0; do
                     echo $i > "/sys/class/gpio/gpio$GPIO_PIN/value"
-                    sleep 0.2
+                    sleep 0.3
                 done
             fi
         ) &
