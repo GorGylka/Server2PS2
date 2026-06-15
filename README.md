@@ -116,7 +116,27 @@ After starting, you can cycle through the modes by pressing the ```BOOT``` butto
 
 <h2 align="left">PS2 Config:</h2>
 
-<h3 align="left">SMB</h3>  
+<h3 align="center">Easy Method:</h3>  
+
+<h3 align="left">You will need:</h3>
+
+- FAT32 USB Drive
+- 8MB MemoryCard (orig or clone, 64mb and more __not supported__)      
+- Ability to run ulaunchELF
+- [MemoryCards.zip](https://github.com/GorGylka/Server2PS2/releases/)
+
+-Depending on chosen method place ```FMCBinst(****)``` folder into root FAT32 USB Drive, insert into PS2  
+-Run uLaunchELF  
+-Run mass:/FMCBinst(****)/FMCBInstaller.elf  
+Make sure that the correct MC is inserted into PS2 slot 1, slot 2 is empty  
+-Restore MC ( Press ```R1``` ```R1``` ```Down``` ```Down``` ```X``` ), Confirm  
+(careful, it will format your MemoryCard)  
+-Install FMCB Multi-install ( Press ```L1``` ```L1``` ```Down``` ```X``` ), Confirm  
+-Exit, Reboot PS2, Eject USB from PS2  
+
+<h3 align="center">Manual:</h3>  
+
+<h3 align="left">SMB</h3> 
 
 Config in [OPL]( https://github.com/ps2homebrew/Open-PS2-Loader/releases/tag/latest) as a reference:
 
