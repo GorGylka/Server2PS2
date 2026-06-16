@@ -137,6 +137,8 @@ Make sure that the correct MC is inserted into PS2 slot 1, slot 2 is empty
 (careful, it will format your MemoryCard)  
 -Install FMCB Multi-install ( Press ```L1``` ```L1``` ```Down``` ```X``` ), Confirm  
 -Exit, Reboot PS2, Eject USB from PS2  
+This will install the latest FMCB and OPENTUNA on one card.  
+This combination of Apps should work on most (if not all) Slim PS2  
 
 <h3 align="center">Manual:</h3>  
 
