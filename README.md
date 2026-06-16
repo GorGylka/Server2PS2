@@ -1,6 +1,10 @@
-<h2 align="left">Server2PS2 - Universal PS2 server</h2>
+<h2 align="center">Server2PS2 - Universal PS2 server</h2>  
 
+<h3 align="center"> A worthy alternative to the PS2 FAT IDE and complex PS2 70000 IDE mods  </h3>  
+
+<p align="center">
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=40% height=40%>
+</p>  
 
 <h3 align="left">Features:</h3>  
 
@@ -162,4 +166,4 @@ SSH / SCP: IP ```192.168.1.1``` Login ```root``` Pass: ```luckfox```
 
 <h2 align="Center">Big thanks to</h2> 
 
-[Rickgaiser](https://github.com/rickgaiser) , [pcm720](https://github.com/pcm720), [AlSiSan](https://github.com/AlSiSan/) , AlSiSan and whole PS2 Community 
+[Rickgaiser](https://github.com/rickgaiser) , [pcm720](https://github.com/pcm720), [AlSiSan](https://github.com/AlSiSan/) , [Belin02](https://github.com/Belin02) and whole PS2 Community 
