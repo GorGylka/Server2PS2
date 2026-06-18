@@ -159,7 +159,7 @@ mc0:/OPL/conf_network.cfg
 mc0:/OPL/conf_opl.cfg  
 -Remove any USB Drive from PS2 (important!)  
 -At the moment OPL is launched, the router must already be connected and running.  
--Run OPNPS2LD..UDPBD.elf  
+-Run OPNPS2LD..UDPBD.elf from MC  
 Settings->BDM Start Mode->Auto  
 Settings->Default Menu->BDM Games->OK->Save Changes  
 
