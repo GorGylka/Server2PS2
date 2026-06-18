@@ -152,9 +152,20 @@ Config in [OPL]( https://github.com/ps2homebrew/Open-PS2-Loader/releases/tag/lat
 
 
 <h3 align="left">UDPBD</h3>  
-Soon
+
+At the moment, the main OPL does not support UDPBD. A [special version of OPL](https://www.psx-place.com/threads/testers-needed-udpbd-the-next-generation-of-loading-games-through-lan-on-a-ps2.40132) is required.  
+-Delete/archive opl .cfg files, there are stored in:  
+mc0:/OPL/conf_network.cfg  
+mc0:/OPL/conf_opl.cfg  
+-Remove any USB Drive from PS2 (important!)  
+-At the moment OPL is launched, the router must already be connected and running.  
+-Run OPNPS2LD..UDPBD.elf  
+Settings->BDM Start Mode->Auto  
+Settings->Default Menu->BDM Games->OK->Save Changes  
+
 <h3 align="left">UDPFS</h3>  
-Soon
+
+At the moment, the only [NHDDL](https://github.com/pcm720/nhddl) support UDPFS. Setup instructions are available on the project page.
 
 <h2 align="left">Advanced</h2>  
 
