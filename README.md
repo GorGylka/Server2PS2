@@ -10,10 +10,11 @@
 
 - ```SMB``` / ```UDPBD``` / ```UDPFS``` support 
 - ```exFAT``` 
-- ```MicroSD``` / ```USB```
+- ```MicroSD``` / ```USB```/ ```SSD```/ ```HDD```
 - Rapid ⏱️ 12sec. bootup
 - Easy setup & clear interface
 - Based on accessible, cheap hardware
+- Ultra low power (```20mA``` idle)
 
 <h3 align="left">Benchmarks:</h3>  
 
