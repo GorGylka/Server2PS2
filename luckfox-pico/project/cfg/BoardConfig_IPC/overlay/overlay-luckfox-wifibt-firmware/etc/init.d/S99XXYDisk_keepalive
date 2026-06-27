@@ -1,0 +1,75 @@
+#!/bin/sh
+
+PIDFILE=/var/run/disk-keepalive.pid
+DISK_NAME="sda" # Указываем базовое имя диска (БЕЗ /dev/ и БЕЗ цифр разделов)
+DISK="/dev/$DISK_NAME"
+
+start() {
+    echo "Starting disk-keepalive"
+
+    (
+        while true; do
+            if [ -b "$DISK" ]; then
+                # 1. Автоматически узнаем общий размер диска в 512-байтных секторах
+                TOTAL_SECTORS=$(cat "/sys/class/block/$DISK_NAME/size" 2>/dev/null)
+                
+                if [ -n "$TOTAL_SECTORS" ] && [ "$TOTAL_SECTORS" -gt 0 ]; then
+                    # 2. Генерируем случайный сектор. 
+                    # Ограничиваем диапазон, чтобы не упереться в самый конец диска.
+                    MAX_RANGE=$((TOTAL_SECTORS - 2000))
+                    
+                    # Переменная $RANDOM в Linux выдает число от 0 до 32767.
+                    # Для больших дисков перемножаем два $RANDOM, чтобы получить крупное число.
+                    RAND_NUM=$(( (RANDOM * 32768) + RANDOM ))
+                    SKIP_SECTOR=$(( RAND_NUM % MAX_RANGE ))
+                    
+                    # echo "[$(date +%T)] Keepalive: listen $DISK at $SKIP_SECTOR from $TOTAL_SECTORS total"
+                    
+                    # 3. Физически читаем 1 сектор со случайным смещением
+                    dd if="$DISK" of=/dev/null bs=512 count=1 skip=$SKIP_SECTOR 2>/dev/null
+                else
+                     echo "[$(date +%T)] Keepalive: cant count $DISK size"
+                fi
+            else
+                 echo "[$(date +%T)] Keepalive: not found $DISK ..."
+            fi
+
+            sleep 10
+        done
+    ) &
+
+    echo $! > "$PIDFILE"
+}
+
+stop() {
+    echo "Stopping disk-keepalive"
+
+    if [ -f "$PIDFILE" ]; then
+        kill "$(cat "$PIDFILE")" 2>/dev/null
+        rm -f "$PIDFILE"
+    fi
+}
+
+restart() {
+    stop
+    sleep 1
+    start
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0
