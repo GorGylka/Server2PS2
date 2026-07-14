@@ -64,13 +64,13 @@ Alternative design:
 
 <h2 align="left">Installation:</h2>  
 
-- Install Drivers [click here to download](https://files.luckfox.com/wiki/Omni3576/TOOLS/DriverAssitant_v5.13.zip).
+- Install Drivers [click here to download](https://github.com/LuckfoxTECH/luckfox-aura-docs/releases).
   
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/driver.jpg">
 
 - download and unzip latest [FW image](https://github.com/GorGylka/Server2PS2/releases)
 
-- Download and extract the SocToolKit flashing tool[Click here to download](https://files.luckfox.com/wiki/Luckfox-Pico/Software/SocToolKit_v1.98_20240705_01_win.zip).
+- Download and extract the SocToolKit flashing tool[Click here to download](https://github.com/LuckfoxTECH/luckfox-aura-docs/releases).
 
 - Plug Luckfox while holding BOOT, Run SocToolKit, flash FW as shown
 
