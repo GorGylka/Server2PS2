@@ -174,6 +174,8 @@ SSH / SCP: IP ```192.168.1.1``` Login ```root``` Pass: ```luckfox```
 
 Internal install (Soldering points for PS2 90000 as an example)  
 
+__4 33nf ceramic capacitors are required.__  
+
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/internal.jpg" width=50% height=50%>  
  
 <h2 align="left">Building</h2>  
