@@ -1,331 +1,480 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Server2PS2 - Universal PS2 server">
   <title>Server2PS2 - Universal PS2 server</title>
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #f6f8fa;
-      color: #24292e;
-      line-height: 1.6;
-    }
-    h2, h3 {
-      border-bottom: 1px solid #e1e4e8;
-      padding-bottom: 0.3em;
-    }
-    h2 {
-      margin-top: 30px;
-    }
-    h3 {
-      margin-top: 25px;
-    }
-    .center {
-      text-align: center;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: inline-block;
-    }
-    .logo {
-      width: 40%;
-      max-width: 400px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 15px 0;
-      background: white;
-    }
-    th, td {
-      border: 1px solid #dfe2e5;
-      padding: 8px 12px;
-      text-align: left;
-    }
-    th {
-      background: #f1f3f5;
-    }
-    .compat-table td, .compat-table th {
-      vertical-align: middle;
-    }
-    .compat-table img {
-      width: 80px;
-      height: auto;
-      border-radius: 4px;
-    }
-    .compat-table .small-img {
-      width: 60px;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
-      margin: 15px 0;
-    }
-    .gallery-item {
-      flex: 1 1 200px;
-      margin: 5px;
-      text-align: center;
-    }
-    .gallery-item img {
-      max-width: 100%;
-      border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .gallery-item .caption {
-      font-size: 0.9em;
-      color: #586069;
-      margin-top: 5px;
-    }
-    .progress-bar {
-      display: inline-block;
-      width: 150px;
-      vertical-align: middle;
-    }
-    .benchmark-table td {
-      padding: 5px 10px;
-    }
-    .code {
-  background: #2d2d2d;
-  color: #e6b91e;
-  padding: 2px 10px;
-  border-radius: 5px;
-  font-family: 'Courier New', monospace;
-  font-weight: 600;             /* полужирный */
-  border: 1px solid #3a3a3a;    /* тонкая рамка для чёткости */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  font-size: 0.95em;            /* чуть крупнее */
+:root {
+  color-scheme: light dark;
+  --fg: #1f2328;
+  --muted: #656d76;
+  --bg: #ffffff;
+  --border: #d0d7de;
+  --border-muted: #d8dee4;
+  --code-bg: rgba(175, 184, 193, 0.2);
+  --table-alt: #f6f8fa;
+  --link: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e6edf3;
+    --muted: #848d97;
+    --bg: #0d1117;
+    --border: #30363d;
+    --border-muted: #21262d;
+    --code-bg: rgba(110, 118, 129, 0.4);
+    --table-alt: #161b22;
+    --link: #4493f8;
   }
-    .led-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    .led-list li {
-      margin-bottom: 5px;
-    }
-    .led-blink {
-      font-size: 1.2em;
-    }
-    .footnote {
-      font-size: 0.9em;
-      color: #586069;
-      margin-top: 5px;
-    }
-    hr {
-      border: none;
-      border-top: 2px solid #e1e4e8;
-      margin: 30px 0;
-    }
-  </style>
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body {
+  max-width: 1012px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.markdown-body::before,
+.markdown-body::after {
+  display: table;
+  content: "";
+}
+.markdown-body::after { clear: both; }
+
+.markdown-body a {
+  color: var(--link);
+  text-decoration: none;
+}
+.markdown-body a:hover { text-decoration: underline; }
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.markdown-body h1 { font-size: 2em; padding-bottom: .3em; border-bottom: 1px solid var(--border-muted); }
+.markdown-body h2 { font-size: 1.5em; padding-bottom: .3em; border-bottom: 1px solid var(--border-muted); }
+.markdown-body h3 { font-size: 1.25em; }
+.markdown-body h4 { font-size: 1em; }
+.markdown-body h5 { font-size: .875em; }
+.markdown-body h6 { font-size: .85em; color: var(--muted); }
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body details {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body ul,
+.markdown-body ol { padding-left: 2em; }
+.markdown-body li + li { margin-top: .25em; }
+
+.markdown-body code {
+  margin: 0;
+  padding: .2em .4em;
+  border-radius: 6px;
+  background-color: var(--code-bg);
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 85%;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  background-color: var(--bg);
+}
+
+.markdown-body table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.markdown-body table th {
+  font-weight: 600;
+}
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid var(--border);
+}
+.markdown-body table tr {
+  background-color: var(--bg);
+  border-top: 1px solid var(--border-muted);
+}
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--table-alt);
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: var(--border-muted);
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .markdown-body { padding: 20px 16px; }
+}
+</style>
 </head>
 <body>
+  <main class="markdown-body">
+<h2 align="center">Server2PS2 - Universal PS2 server</h2>  
 
-<!-- Логотип и заголовки -->
-<h2 align="center">Server2PS2 - test 1 Universal PS2 server</h2>
-<h3 align="center">A worthy alternative to the PS2 FAT IDE and complex PS2 70000 IDE mods</h3>
+<h3 align="center"> A worthy alternative to the PS2 FAT IDE and complex PS2 70000 IDE mods  </h3>  
+
 <p align="center">
-  <img src="readme_stuff/S2PS2.png" alt="Server2PS2 Logo" class="logo">
-</p>
+<img src="readme_stuff/S2PS2.png" width=40% height=40%>
+</p>  
 
-<!-- Features -->
-<h3>Features:</h3>
+<h3 align="left">Features:</h3>  
+
 <ul>
-  <li><code>SMB</code> / <code>UDPBD</code> / <code>UDPFS</code> support</li>
-  <li><code>exFAT</code></li>
-  <li><code>MicroSD</code> / <code>USB</code> / <code>SSD</code> / <code>HDD</code></li>
-  <li>Rapid ⏱️ 12sec. bootup</li>
-  <li>Easy setup &amp; clear interface</li>
-  <li>Based on accessible, cheap hardware</li>
-  <li>Ultra low power (<code>20mA</code> idle)</li>
+<li><code>SMB</code> / <code>UDPBD</code> / <code>UDPFS</code> support</li>
+<li><code>exFAT</code></li>
+<li><code>MicroSD</code> / <code>USB</code>/ <code>SSD</code>/ <code>HDD</code></li>
+<li>Rapid ⏱️ 12sec. bootup</li>
+<li>Easy setup &amp; clear interface</li>
+<li>Based on accessible, cheap hardware</li>
+<li>Ultra low power (<code>20mA</code> idle)</li>
 </ul>
+<h3 align="left">Benchmarks:</h3>  
 
-<!-- Benchmarks -->
-<h3>Benchmarks:</h3>
-<table class="benchmark-table">
-  <thead>
-    <tr><th>Device</th><th>PS2 model</th><th>Speed</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>USB</td><td>FAT + SLIM 70000</td><td><img src="https://progress-bar.xyz/750?scale=2200&suffix=KB/s&&progress_color=d9534f" alt="750 KB/s"></td></tr>
-    <tr><td>USB</td><td>SLIM</td><td><img src="https://progress-bar.xyz/900?scale=2200&suffix=KB/s" alt="900 KB/s"></td></tr>
-    <tr><td>MX4SIO</td><td>SLIM</td><td><img src="https://progress-bar.xyz/1150?scale=2200&suffix=KB/s" alt="1150 KB/s"></td></tr>
-    <tr><td>MMCE</td><td>SLIM</td><td><img src="https://progress-bar.xyz/1350?scale=2200&suffix=KB/s" alt="1350 KB/s"></td></tr>
-    <tr><td>MX4SIO</td><td>FAT + SLIM 70000</td><td><img src="https://progress-bar.xyz/1500?scale=2200&suffix=KB/s" alt="1500 KB/s"></td></tr>
-    <tr><td>MMCE</td><td>FAT + SLIM 70000</td><td><img src="https://progress-bar.xyz/1700?scale=2200&suffix=KB/s&&progress_color=9ead5a" alt="1700 KB/s"></td></tr>
-    <tr><td>SMB ⭐</td><td>ALL</td><td><img src="https://progress-bar.xyz/2200?scale=2500&suffix=KB/s&&progress_color=85ad5b" alt="2200 KB/s"></td></tr>
-    <tr><td>DVD (Target) ✔️</td><td>ALL</td><td><img src="https://progress-bar.xyz/3500?scale=2200&suffix=KB/s" alt="3500 KB/s"></td></tr>
-    <tr><td>UDPFS ⭐</td><td>ALL</td><td><img src="https://progress-bar.xyz/5200?scale=2200&suffix=KB/s" alt="5200 KB/s"></td></tr>
-    <tr><td>UDPBD ⭐</td><td>ALL</td><td><img src="https://progress-bar.xyz/9400?scale=2200&suffix=KB/s" alt="9400 KB/s"></td></tr>
-    <tr><td>IDE HDD</td><td>FAT</td><td><img src="https://progress-bar.xyz/21000?scale=2200&suffix=KB/s" alt="21000 KB/s"></td></tr>
-  </tbody>
+<table>
+<thead>
+<tr class="header">
+<th>Device</th>
+<th>PS2 model</th>
+<th>Speed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>USB</td>
+<td>FAT + SLIM 70000</td>
+<td><img src="https://progress-bar.xyz/750?scale=2200&amp;suffix=KB/s&amp;&amp;progress_color=d9534f" alt="x" /></td>
+</tr>
+<tr class="even">
+<td>USB</td>
+<td>SLIM</td>
+<td><img src="https://progress-bar.xyz/900?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="odd">
+<td>MX4SIO</td>
+<td>SLIM</td>
+<td><img src="https://progress-bar.xyz/1150?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="even">
+<td>MMCE</td>
+<td>SLIM</td>
+<td><img src="https://progress-bar.xyz/1350?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="odd">
+<td>MX4SIO</td>
+<td>FAT + SLIM 70000</td>
+<td><img src="https://progress-bar.xyz/1500?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="even">
+<td>MMCE</td>
+<td>FAT + SLIM 70000</td>
+<td><img src="https://progress-bar.xyz/1700?scale=2200&amp;suffix=KB/s&amp;&amp;progress_color=9ead5a" alt="x" /></td>
+</tr>
+<tr class="odd">
+<td>SMB ⭐</td>
+<td>ALL</td>
+<td><img src="https://progress-bar.xyz/2200?scale=2500&amp;suffix=KB/s&amp;&amp;progress_color=85ad5b" alt="x" /></td>
+</tr>
+<tr class="even">
+<td>DVD (Target) ✔️</td>
+<td>ALL</td>
+<td><img src="https://progress-bar.xyz/3500?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="odd">
+<td>UDPFS ⭐</td>
+<td>ALL</td>
+<td><img src="https://progress-bar.xyz/5200?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="even">
+<td>UDPBD ⭐</td>
+<td>ALL</td>
+<td><img src="https://progress-bar.xyz/9400?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+<tr class="odd">
+<td>IDE HDD</td>
+<td>FAT</td>
+<td><img src="https://progress-bar.xyz/21000?scale=2200&amp;suffix=KB/s" alt="x" /></td>
+</tr>
+</tbody>
 </table>
+<h3 align="left">Compatibility</h3>  
 
-<!-- Compatibility -->
-<h3>Compatibility</h3>
-<table class="compat-table">
-  <thead>
-    <tr><th>Device</th><th>Support</th><th>SD</th><th>USB</th><th>Photo</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Luckfox Pico Mini B</td><td>✅¹</td><td>✅</td><td>✅²</td><td><img src="readme_stuff/pico_mini_b.jpg" alt="Pico Mini B"></td></tr>
-    <tr><td>Luckfox Pico Mini A</td><td>❓¹</td><td>❌</td><td>✅²</td><td><img src="readme_stuff/pico_mini_a.jpg" alt="Pico Mini A"></td></tr>
-    <tr><td>Luckfox Pico</td><td>❓¹</td><td>❌</td><td>✅²</td><td><img src="readme_stuff/pico_orig.jpg" alt="Pico Original"></td></tr>
-    <tr><td>Luckfox Pico Plus</td><td>✅</td><td>✅</td><td>✅²</td><td><img src="readme_stuff/pico_plus.jpg" alt="Pico Plus"></td></tr>
-    <tr><td>Luckfox Pico WebBee</td><td>✅</td><td>✅</td><td>❌</td><td><img src="readme_stuff/pico_webbee.jpg" alt="Pico WebBee"></td></tr>
-    <tr><td>rv1103 based P4 PPPwn Dongles</td><td>✅</td><td>❌</td><td>✅²</td><td><img src="readme_stuff/pico_pppwn.jpg" alt="P4 PPPwn"></td></tr>
-  </tbody>
+<table>
+<thead>
+<tr class="header">
+<th>Device</th>
+<th>Support</th>
+<th>SD</th>
+<th>USB</th>
+<th>Photo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Luckfox Pico Mini B</td>
+<td>✅¹</td>
+<td>✅</td>
+<td>✅²</td>
+<td><img src="readme_stuff/pico_mini_b.jpg" width=20% height=20%></td>
+</tr>
+<tr class="even">
+<td>Luckfox Pico Mini A</td>
+<td>❓¹</td>
+<td>❌</td>
+<td>✅²</td>
+<td><img src="readme_stuff/pico_mini_a.jpg" width=20% height=20%></td>
+</tr>
+<tr class="odd">
+<td>Luckfox Pico</td>
+<td>❓¹</td>
+<td>❌</td>
+<td>✅²</td>
+<td><img src="readme_stuff/pico_orig.jpg" width=40% height=40%></td>
+</tr>
+<tr class="even">
+<td>Luckfox Pico Plus</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅²</td>
+<td><img src="readme_stuff/pico_plus.jpg" width=40% height=40%></td>
+</tr>
+<tr class="odd">
+<td>Luckfox Pico WebBee</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td><img src="readme_stuff/pico_webbee.jpg" width=40% height=40%></td>
+</tr>
+<tr class="even">
+<td>rv1103 based P4 PPPwn Dongles</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅²</td>
+<td><img src="readme_stuff/pico_pppwn.jpg" width=40% height=40%></td>
+</tr>
+</tbody>
 </table>
-<div class="footnote">
-  ❓ = Not tested yet <br>
-  ✅¹ = Requires LAN cable solder<br>
-  <img src="readme_stuff/pico_mini_eth.jpg" style="width:30%; max-width:300px;"><br>
-  ✅² = Requires Type-C OTG adapter / Type-C USB Drive &amp; external 5V power<br>
-  <img src="readme_stuff/pico_mini_otg.jpg" style="width:50%; max-width:500px;"><br>
-  For P4 Dongle:<br>
-  <img src="readme_stuff/p4.jpg" style="width:50%; max-width:500px;"><br>
-  Alternative design:<br>
-  <img src="readme_stuff/p4v1.jpg" style="width:50%; max-width:500px;">
-</div>
+<p>❓= Not tested yet<br />
+✅¹ = Requires LAN cable solder<br />
+<img src="readme_stuff/pico_mini_eth.jpg" width=30% height=30%><br />
+✅² = Requires Type-C OTG adapter / Type-C USB Drive &amp; external 5V power<br />
+<img src="readme_stuff/pico_mini_otg.jpg" width=50% height=50%><br />
+For P4 Dongle:<br />
+<img src="readme_stuff/p4.jpg" width=50% height=50%><br />
+Alternative design:<br />
+<img src="readme_stuff/p4v1.jpg" width=50% height=50%></p>
+<h2 align="left">MicroSD / USB preparations:</h2>
 
-<!-- MicroSD / USB preparations -->
-<h2>MicroSD / USB preparations:</h2>
+<p>-Format USB to GUID Partition Table (GPT), exFat, Standart Cluster Size<br />
+(I recommend using <a href="https://rufus.ie">Rufus</a> than Windows formatting)<br />
+<img src="readme_stuff/format.jpg"></p>
+<p>-Do standart USB config for PS2 (create CD/DVD folders, add backups, ARTs, e.t.c.)</p>
+<h2 align="left">Installation:</h2>  
+
 <ul>
-  <li>Format USB to GUID Partition Table (GPT), exFat, Standart Cluster Size<br>
-    (I recommend using <a href="https://rufus.ie" target="_blank">Rufus</a> than Windows formatting)<br>
-    <img src="readme_stuff/format.jpg" style="max-width:80%;">
-  </li>
-  <li>Do standart USB config for PS2 (create CD/DVD folders, add backups, ARTs, e.t.c.)</li>
+<li>Install Drivers <a href="https://github.com/LuckfoxTECH/luckfox-aura-docs/releases">click here to download</a>.</li>
 </ul>
+<img src="readme_stuff/driver.jpg">
 
-<!-- Installation -->
-<h2>Installation:</h2>
 <ul>
-  <li>Install Drivers <a href="https://github.com/LuckfoxTECH/luckfox-aura-docs/releases" target="_blank">click here to download</a>.<br>
-    <img src="readme_stuff/driver.jpg" style="max-width:80%;">
-  </li>
-  <li>download and unzip latest <a href="https://github.com/GorGylka/Server2PS2/releases" target="_blank">FW image</a></li>
-  <li>Download and extract the SocToolKit flashing tool <a href="https://github.com/LuckfoxTECH/luckfox-aura-docs/releases" target="_blank">Click here to download</a>.</li>
-  <li>Plug Luckfox while holding BOOT, Run SocToolKit, flash FW as shown<br>
-    <img src="readme_stuff/flashing.jpg" style="max-width:80%;">
-  </li>
-  <li>After flashing, disconnect the USB cable. Server side is done!</li>
+<li><p>download and unzip latest <a href="https://github.com/GorGylka/Server2PS2/releases">FW image</a></p></li>
+<li><p>Download and extract the SocToolKit flashing tool<a href="https://github.com/LuckfoxTECH/luckfox-aura-docs/releases">Click here to download</a>.</p></li>
+<li><p>Plug Luckfox while holding BOOT, Run SocToolKit, flash FW as shown</p></li>
 </ul>
+<img src="readme_stuff/flashing.jpg">
 
-<!-- Configuration -->
-<h2>Configuration:</h2>
-<h3>Simplified setup:</h3>
-<p>On the Luckfox Pico (depending on the model) there are 2 LEDs: ACT and USER<br>
-Blinking of USER LED = server has started, number of blinks indicates server type.<br>
+<ul>
+<li>After flashing, disconnect the USB cable. Server side is done!</li>
+</ul>
+<h2 align="left">Configuration:</h2>  
+
+<h3 align="left">Simplified setup:</h3>  
+
+<p>On the Luckfox Pico (depending on the model) there are 2 LEDs: ACT and USER<br />
+Blinking of USER LED = server has started, number of blinks indicates server type.<br />
 (Default is SMB SD)</p>
 <table>
-  <thead>
-    <tr><th>LED</th><th>Action</th><th>Server Type</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>1 Blink</td><td>🔴</td><td>SMB SD</td></tr>
-    <tr><td>2 Blinks</td><td>🔴🔴</td><td>SMB USB</td></tr>
-    <tr><td>3 Blinks</td><td>🔴🔴🔴</td><td>UDPBD SD</td></tr>
-    <tr><td>4 Blinks</td><td>🔴🔴🔴🔴</td><td>UDPBD USB</td></tr>
-    <tr><td>5 Blinks</td><td>🔴🔴🔴🔴🔴</td><td>UDPFS SD</td></tr>
-    <tr><td>6 Blinks</td><td>🔴🔴🔴🔴🔴🔴</td><td>UDPFS USB</td></tr>
-  </tbody>
+<thead>
+<tr class="header">
+<th>LED</th>
+<th>Action</th>
+<th>Server Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 Blink</td>
+<td>🔴</td>
+<td>SMB SD</td>
+</tr>
+<tr class="even">
+<td>2 Blinks</td>
+<td>🔴🔴</td>
+<td>SMB USB</td>
+</tr>
+<tr class="odd">
+<td>3 Blinks</td>
+<td>🔴🔴🔴</td>
+<td>UDPBD SD</td>
+</tr>
+<tr class="even">
+<td>4 Blinks</td>
+<td>🔴🔴🔴🔴</td>
+<td>UDPBD USB</td>
+</tr>
+<tr class="odd">
+<td>5 Blinks</td>
+<td>🔴🔴🔴🔴🔴</td>
+<td>UDPFS SD</td>
+</tr>
+<tr class="even">
+<td>6 Blinks</td>
+<td>🔴🔴🔴🔴🔴🔴</td>
+<td>UDPFS USB</td>
+</tr>
+</tbody>
 </table>
 <p>After starting, you can cycle through the modes by pressing the <code>BOOT</code> button</p>
-<img src="readme_stuff/mode_select.gif" style="max-width:80%;">
+<img src="readme_stuff/mode_select.gif">
 
-<h3>Manual setup:</h3>
+<h3 align="left">Manual setup:</h3> 
+
 <ul>
-  <li>To get to router config page, you will need to set Static IP</li>
-  <li>Connect power to server, LAN cable, Set as shown:</li>
+<li>To get to router config page, you will need to set Static IP</li>
+<li>Connect power to server, LAN cable, Set as shown:</li>
 </ul>
 <table>
-  <tr><td>IP</td><td>192.168.1.10</td></tr>
-  <tr><td>NetMask</td><td>255.255.255.0</td></tr>
-  <tr><td>Gateway</td><td>192.168.1.1</td></tr>
+<thead>
+<tr class="header">
+<th>IP</th>
+<th>192.168.1.10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NetMask</td>
+<td>255.255.255.0</td>
+</tr>
+<tr class="even">
+<td>Gateway</td>
+<td>192.168.1.1</td>
+</tr>
+</tbody>
 </table>
-<img src="readme_stuff/netconfig.jpg" style="max-width:80%;">
+  <img src="readme_stuff/netconfig.jpg">
+
 <ul>
-  <li>go to <a href="http://192.168.1.1/cgi-bin/index.cgi" target="_blank">http://192.168.1.1/cgi-bin/index.cgi</a> or <a href="http://192.168.1.1" target="_blank">http://192.168.1.1</a></li>
+<li>go to [<a href="http://192.168.1.1/cgi-bin/index.cgi](http://192.168.1.1/cgi-bin/index.cgi)">http://192.168.1.1/cgi-bin/index.cgi](http://192.168.1.1/cgi-bin/index.cgi)</a> or [<a href="http://192.168.1.1](http://192.168.1.1)">http://192.168.1.1](http://192.168.1.1)</a></li>
 </ul>
-<img src="readme_stuff/menu2.jpg" style="max-width:75%;">
-<p>Check that drives are detected by server, then select the server mode.</p>
+<img src="readme_stuff/menu2.jpg" width=75% height=75%>
 
-<!-- PS2 Config -->
-<h2>PS2 Config:</h2>
-<h3 class="center">Easy Method:</h3>
-<h3>You will need:</h3>
 <ul>
-  <li>FAT32 USB Drive</li>
-  <li>8MB MemoryCard (orig or clone, 64mb and more <strong>not supported</strong>)</li>
-  <li>Ability to run ulaunchELF</li>
-  <li><a href="https://github.com/GorGylka/Server2PS2/releases/" target="_blank">MemoryCards.zip</a></li>
+<li>Check that drives are detected by server, then select the server mode.</li>
 </ul>
-<p>
-  Depending on chosen method place <code>FMCBinst(****)</code> folder into root FAT32 USB Drive, insert into PS2<br>
-  Run uLaunchELF<br>
-  Run mass:/FMCBinst(****)/FMCBInstaller.elf<br>
-  Make sure that the correct MC is inserted into PS2 slot 1, slot 2 is empty<br>
-  Restore MC ( Press <code>R1</code> <code>R1</code> <code>Down</code> <code>Down</code> <code>X</code> ), Confirm<br>
-  (careful, it will format your MemoryCard)<br>
-  Install FMCB Multi-install ( Press <code>L1</code> <code>L1</code> <code>Down</code> <code>X</code> ), Confirm<br>
-  Exit, Reboot PS2, Eject USB from PS2<br>
-  This will install the latest FMCB and OPENTUNA on one card.<br>
-  This combination of Apps should work on most (if not all) Slim PS2
-</p>
+<h2 align="left">PS2 Config:</h2>
 
-<h3 class="center">Manual:</h3>
-<h3>SMB</h3>
-<p>Config in <a href="https://github.com/ps2homebrew/Open-PS2-Loader/releases/tag/latest" target="_blank">OPL</a> as a reference:</p>
-<img src="readme_stuff/smb1.jpg" style="width:50%; max-width:500px;">
-<img src="readme_stuff/smb2.jpg" style="width:50%; max-width:500px;">
+<h3 align="center">Easy Method:</h3>  
 
-<h3>UDPBD</h3>
-<p>
-  At the moment, the main OPL does not support UDPBD. A <a href="https://www.psx-place.com/threads/testers-needed-udpbd-the-next-generation-of-loading-games-through-lan-on-a-ps2.40132" target="_blank">special version of OPL</a> is required.<br>
-  -Delete/archive opl .cfg files, there are stored in:<br>
-  <code>mc0:/OPL/conf_network.cfg</code><br>
-  <code>mc0:/OPL/conf_opl.cfg</code><br>
-  -Remove any USB Drive from PS2 (important!)<br>
-  -At the moment OPL is launched, the router must already be connected and running.<br>
-  -Run OPNPS2LD..UDPBD.elf from MC<br>
-  Settings->BDM Start Mode->Auto<br>
-  Settings->Default Menu->BDM Games->OK->Save Changes
-</p>
+<h3 align="left">You will need:</h3>
 
-<h3>UDPFS</h3>
-<p>
-  At the moment, the only <a href="https://github.com/pcm720/nhddl" target="_blank">NHDDL</a> support UDPFS. Setup instructions are available on the project page.
-</p>
+<ul>
+<li>FAT32 USB Drive</li>
+<li>8MB MemoryCard (orig or clone, 64mb and more <strong>not supported</strong>)</li>
+<li>Ability to run ulaunchELF</li>
+<li><a href="https://github.com/GorGylka/Server2PS2/releases/">MemoryCards.zip</a></li>
+</ul>
+<p>-Depending on chosen method place <code>FMCBinst(****)</code> folder into root FAT32 USB Drive, insert into PS2<br />
+-Run uLaunchELF<br />
+-Run mass:/FMCBinst(****)/FMCBInstaller.elf<br />
+Make sure that the correct MC is inserted into PS2 slot 1, slot 2 is empty<br />
+-Restore MC ( Press <code>R1</code> <code>R1</code> <code>Down</code> <code>Down</code> <code>X</code> ), Confirm<br />
+(careful, it will format your MemoryCard)<br />
+-Install FMCB Multi-install ( Press <code>L1</code> <code>L1</code> <code>Down</code> <code>X</code> ), Confirm<br />
+-Exit, Reboot PS2, Eject USB from PS2<br />
+This will install the latest FMCB and OPENTUNA on one card.<br />
+This combination of Apps should work on most (if not all) Slim PS2</p>
+<h3 align="center">Manual:</h3>  
 
-<!-- Advanced -->
-<h2>Advanced</h2>
+<h3 align="left">SMB</h3> 
+
+<p>Config in <a href="https://github.com/ps2homebrew/Open-PS2-Loader/releases/tag/latest">OPL</a> as a reference:</p>
+<img src="readme_stuff/smb1.jpg" width=50% height=50%>  
+
+<img src="readme_stuff/smb2.jpg" width=50% height=50%>  
+
+<h3 align="left">UDPBD</h3>  
+
+<p>At the moment, the main OPL does not support UDPBD. A <a href="https://www.psx-place.com/threads/testers-needed-udpbd-the-next-generation-of-loading-games-through-lan-on-a-ps2.40132">special version of OPL</a> is required.<br />
+-Delete/archive opl .cfg files, there are stored in:<br />
+mc0:/OPL/conf_network.cfg<br />
+mc0:/OPL/conf_opl.cfg<br />
+-Remove any USB Drive from PS2 (important!)<br />
+-At the moment OPL is launched, the router must already be connected and running.<br />
+-Run OPNPS2LD..UDPBD.elf from MC<br />
+Settings-&gt;BDM Start Mode-&gt;Auto<br />
+Settings-&gt;Default Menu-&gt;BDM Games-&gt;OK-&gt;Save Changes</p>
+<h3 align="left">UDPFS</h3>  
+
+<p>At the moment, the only <a href="https://github.com/pcm720/nhddl">NHDDL</a> support UDPFS. Setup instructions are available on the project page.</p>
+<h2 align="left">Advanced</h2>  
+
 <p>SSH / SCP: IP <code>192.168.1.1</code> Login <code>root</code> Pass: <code>luckfox</code></p>
 <p>Internal install (Soldering points for PS2 90000 as an example)</p>
 <p><strong>4 33nf ceramic capacitors are required.</strong></p>
-<img src="readme_stuff/internal.jpg" style="width:50%; max-width:500px;">
+<img src="readme_stuff/internal.jpg" width=50% height=50%>  
 
-<!-- Building -->
-<h2>Building</h2>
+<h2 align="left">Building</h2>  
+
 <ul>
-  <li>git clone https://github.com/LuckfoxTECH/luckfox-pico</li>
-  <li>Merge with my files</li>
-  <li>i dont know how to copy hidden files correctly, you need to rename 2 config files as .config</li>
+<li>git clone <a href="https://github.com/LuckfoxTECH/luckfox-pico">https://github.com/LuckfoxTECH/luckfox-pico</a></li>
+<li>Merge with my files</li>
+<li>i dont know how to copy hidden files correctly, you need to rename 2 config files as .config</li>
 </ul>
+<h2 align="Center">Big thanks to</h2> 
 
-<!-- Thanks -->
-<h2 class="center">Big thanks to</h2>
-<p class="center">
-  <a href="https://github.com/rickgaiser" target="_blank">Rickgaiser</a> ,
-  <a href="https://github.com/pcm720" target="_blank">pcm720</a>,
-  <a href="https://github.com/AlSiSan/" target="_blank">AlSiSan</a> ,
-  <a href="https://github.com/Belin02" target="_blank">Belin02</a> and whole PS2 Community
-</p>
+<p><a href="https://github.com/rickgaiser">Rickgaiser</a> , <a href="https://github.com/pcm720">pcm720</a>, <a href="https://github.com/AlSiSan/">AlSiSan</a> , <a href="https://github.com/Belin02">Belin02</a> and whole PS2 Community</p>
 
+  </main>
 </body>
 </html>
