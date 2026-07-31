@@ -3,6 +3,14 @@
 <h3 align="center"> A worthy alternative to the PS2 FAT IDE and complex PS2 70000 IDE mods  </h3>  
 
 <p align="center">
+  
+  <img src="https://img.shields.io/github/downloads/GorGylka/Server2PS2/total.svg?color=red&style=for-the-badge&maxAge=3600"> 
+  <img src="https://img.shields.io/github/stars/gorgylka/Server2PS2?color=red&style=for-the-badge&maxAge=3600"> 
+  <img src="https://img.shields.io/github/v/release/gorgylka/Server2PS2?color=red&label=latest%20release&style=for-the-badge"> 
+  
+</p>  
+
+<p align="center">
 <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/S2PS2.png" width=40% height=40%>
 </p>  
 
@@ -187,3 +195,7 @@ __4 33nf ceramic capacitors are required.__
 <h2 align="Center">Big thanks to</h2> 
 
 [Rickgaiser](https://github.com/rickgaiser) , [pcm720](https://github.com/pcm720), [AlSiSan](https://github.com/AlSiSan/) , [Belin02](https://github.com/Belin02) and whole PS2 Community 
+
+[img_downloads]: https://img.shields.io/github/downloads/GorGylka/Server2PS2/total.svg?color=red&style=for-the-badge&maxAge=3600
+[img_stars]: https://img.shields.io/github/stars/gorgylka/Server2PS2?color=red&style=for-the-badge&maxAge=3600
+[img_version]: https://img.shields.io/github/v/release/gorgylka/Server2PS2?color=red&label=latest%20release&style=for-the-badge
