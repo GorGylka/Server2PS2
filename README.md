@@ -49,7 +49,7 @@ IDE HDD            | FAT        |![x](https://progress-bar.xyz/21000?scale=2200&
 | Luckfox Pico | ❓¹ | ❌ | ✅² | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_orig.jpg" width=40% height=40%> |
 | Luckfox Pico Plus | ✅ | ✅ | ✅² | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_plus.jpg" width=40% height=40%> |
 | Luckfox Pico WebBee | ✅ | ✅ | ❌ | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_webbee.jpg" width=40% height=40%> |
-| Luckfox Pico Pro Max | [HERE]( https://github.com/GorGylka/Server2PS2/issues/7#issuecomment-5574450208) | ✅ | ✅ | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_pro_max.jpg" width=40% height=40%> |
+| Luckfox Pico Pro Max | ✅ [HERE]( https://github.com/GorGylka/Server2PS2/issues/7#issuecomment-5574450208) | ✅ | ✅² | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_pro_max.jpg" width=40% height=40%> |
 | rv1103 based P4 PPPwn Dongles | ✅ | ❌ | ✅² | <img src="https://github.com/GorGylka/Server2PS2/blob/main/readme_stuff/pico_pppwn.jpg" width=40% height=40%> |
 
 ❓= Not tested yet   
